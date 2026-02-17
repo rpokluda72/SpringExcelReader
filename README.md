@@ -25,8 +25,6 @@ Může jich být více a větší (i více než 64 bitů), s vlivem na celkový 
 
 Pokud se uchazeč rozhodne tuto úlohu vypracovat, je nutné, aby ji vypracoval samostatně bez pomoci jiných osob, GPT a obdobných AI nástrojů. Použití internetu je povoleno. Pokud při vypracování úlohy máte nejasnosti a nemáte dostatek informací, dotazy formulujte. Následně si na dotazy navrhněte odpověď a podle toho úlohu vypracujte. Dotazy a odpovědi prosím přiložte k vypracované úloze.
 
-### Run attributes
-
 ### Test excel file
 |   | A | B | C |
 | ------------- | ------------- | ------------- | ------------- |
@@ -42,15 +40,15 @@ Pokud se uchazeč rozhodne tuto úlohu vypracovat, je nutné, aby ji vypracoval 
 | 9  | 11  | 11  | 11 |
 
 ### Optional run arguments
-run example : l-TestData.xlsx cf-2 ct-2 rf-1 rt-9
-l: file location 
-cf: column index from
-ct: column index to
-rf: row index from
-rt: row index to
+run example : java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-2 ct-2 rf-1 rt-9
+* l : file location 
+* cf: column index from
+* ct: column index to
+* rf: row index from
+* rt: row index to
 
-cf-2 ct-2: column with index 2 will be taken only
-rf-2 rt-9: rows with index >=2 and <= 9  will be taken only
+- cf-2 ct-2: column with index 2 will be taken only
+- rf-2 rt-9: rows with index >=2 and <= 9  will be taken only
 
 Column and row arguments are optional. If no column/row limitations all sheet cells will be taken.
 
@@ -60,20 +58,17 @@ Test files can be stored in main/resorces
         // java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-2 ct-2 rf-1 rt-9
         // úno 17, 2026 12:51:12 ODP. my.excelreader.MyExcelReader log
         // INFO: args=[l-TestData.xlsx, cf-2, ct-2, rf-1, rt-9]
-        // ReaderArguments{location='TestData.xlsx', columnFrom=2, columnTo=2, rowFrom=1, rowTo=9}
         // úno 17, 2026 12:51:13 ODP. my.excelreader.MyExcelReader log
         // INFO: primeNumbers=[17, 7, 11]
 
         // java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9
         // úno 17, 2026 12:52:55 ODP. my.excelreader.MyExcelReader log
         // INFO: args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9]
-        // ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9}
         // úno 17, 2026 12:52:56 ODP. my.excelreader.MyExcelReader log
         // INFO: primeNumbers=[3, 11]
 
         // java -jar SpringExcelReader-1.0.0.jar l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx  cf-2 ct-2 rf-1 rt-9
         // úno 17, 2026 3:33:22 ODP. my.excelreader.MyExcelReader log
         // INFO: args=[l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx, cf-2, ct-2, rf-1, rt-9]
-        // ReaderArguments{location='C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx', columnFrom=2, columnTo=2, rowFrom=1, rowTo=9}
         // úno 17, 2026 3:33:23 ODP. my.excelreader.MyExcelReader log
         // INFO: primeNumbers=[17, 7, 11]
