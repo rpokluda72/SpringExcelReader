@@ -1,0 +1,3 @@
+My text file from test/resources
+text row 2
+text row 3
