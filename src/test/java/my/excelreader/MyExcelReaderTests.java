@@ -63,4 +63,19 @@ class MyExcelReaderTests {
 		Assert.isTrue(primeNumbers.get(0) == 17, errMsg);
 		Assert.isTrue(primeNumbers.get(1) == 7, errMsg);
 	}
+
+
+	@Test
+	void readD() {
+		String errMsg = "readC failed";
+		String[] args = { "l-C:\\Users\\roman\\Work\\pohovor\\projects\\java\\excelReader\\SpringExcelReader\\src\\main\\resources\\TestData.xlsx", "cf-2", "ct-2", "rf-2", "rt-7"};
+
+		MyExcelReader myExcelReader = new MyExcelReader();
+		ArrayList<Integer> primeNumbers = myExcelReader.getSheetPrimeNumbers(args);
+		myExcelReader.log(Level.INFO, "primeNumbers=" + primeNumbers);
+
+		Assert.isTrue(primeNumbers.size() == 2, errMsg);
+		Assert.isTrue(primeNumbers.get(0) == 17, errMsg);
+		Assert.isTrue(primeNumbers.get(1) == 7, errMsg);
+	}
 }

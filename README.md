@@ -70,3 +70,10 @@ Test files can be stored in main/resorces
         // ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9}
         // úno 17, 2026 12:52:56 ODP. my.excelreader.MyExcelReader log
         // INFO: primeNumbers=[3, 11]
+
+        // java -jar SpringExcelReader-1.0.0.jar l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx  cf-2 ct-2 rf-1 rt-9
+        // úno 17, 2026 3:33:22 ODP. my.excelreader.MyExcelReader log
+        // INFO: args=[l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx, cf-2, ct-2, rf-1, rt-9]
+        // ReaderArguments{location='C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx', columnFrom=2, columnTo=2, rowFrom=1, rowTo=9}
+        // úno 17, 2026 3:33:23 ODP. my.excelreader.MyExcelReader log
+        // INFO: primeNumbers=[17, 7, 11]

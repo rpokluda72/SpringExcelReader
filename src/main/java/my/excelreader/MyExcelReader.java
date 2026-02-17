@@ -25,7 +25,13 @@ public class MyExcelReader {
 
     private ArrayList<Integer> getSheetPrimeNumbers(ArgumentsReader readerArgs) {
         ExcelReader excelReader = new ExcelReader();
-        Sheet sheet = excelReader.getSheet(readerArgs.getLocation(), 0);
+        Sheet sheet;
+        if (readerArgs.getLocation().startsWith("C:")) {
+            sheet = excelReader.getSheetByFilePath(readerArgs.getLocation(), 0);
+        } else {
+            sheet = excelReader.getSheet(readerArgs.getLocation(), 0);
+        }
+//        Sheet sheet = excelReader.getSheet(readerArgs.getLocation(), 0);
         return getPrimeNumbersFromSheet(readerArgs, sheet);
     }
 

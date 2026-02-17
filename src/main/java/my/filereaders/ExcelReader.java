@@ -47,6 +47,14 @@ public class ExcelReader {
         return null;
     }
 
+    public Sheet getSheetByFilePath(String filePath, int sheetIndex) {
+        Workbook workbook = getWorkbookByFilePath(filePath);
+        if (workbook != null) {
+            return workbook.getSheetAt(sheetIndex);
+        }
+        return null;
+    }
+
     public Sheet getSheet(Workbook workbook, String sheetName) {
         return workbook.getSheet(sheetName);
     }
