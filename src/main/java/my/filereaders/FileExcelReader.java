@@ -1,6 +1,5 @@
 package my.filereaders;
 
-import my.excelreader.MyExcelReader;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.FileInputStream;
@@ -8,12 +7,12 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ExcelReader {
+public class FileExcelReader {
 
-    Logger logger = Logger.getLogger(ExcelReader.class.getName());
+    Logger logger = Logger.getLogger(FileExcelReader.class.getName());
 
     public Workbook getWorkbook(String fileLocation) {
-        try (InputStream inputStream = ExcelReader.class.getClassLoader().getResourceAsStream(fileLocation)) {
+        try (InputStream inputStream = FileExcelReader.class.getClassLoader().getResourceAsStream(fileLocation)) {
             if (inputStream == null) {
                 log(Level.INFO,"File " + fileLocation + " not found!");
                 return null;

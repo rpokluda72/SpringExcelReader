@@ -1,13 +1,9 @@
 package my.filereaders;
 
-import my.excelreader.MyExcelReader;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
-import java.util.ArrayList;
-import java.util.logging.Level;
-
-class TxtReaderTests {
+class FileTxtReaderTests {
 
 	/**
 	 * mytxt.txt
@@ -19,8 +15,8 @@ class TxtReaderTests {
 	void readTxt() {
 		String errMsg = "readTxt failed";
 
-		TxtReader txtReader =  new TxtReader();
-		String content = txtReader.getTxtContent("mytxt.txt");
+		FileTxtReader fileTxtReader =  new FileTxtReader();
+		String content = fileTxtReader.getTxtContent("mytxt.txt");
 
 		System.out.println("content:" + content);
 		Assert.isTrue(content.contains("My text file from test/resources"), errMsg);

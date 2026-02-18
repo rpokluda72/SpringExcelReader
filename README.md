@@ -28,19 +28,20 @@ Pokud se uchazeč rozhodne tuto úlohu vypracovat, je nutné, aby ji vypracoval 
 ### Test excel file
 |   | A | B | C |
 | ------------- | ------------- | ------------- | ------------- |
-| 1  | 13 | 154 | 154 |
-| 1  | 13 | 154 | 154 |
-| 2  | -4  | 3  | -4 |
-| 3  | 154,14  | 154,14  | 154,14 |
-| 4   | adad  | adad  | adad |
-| 5  | 22  | 22  | 17 |
-| 6  | 7  | -7  | 7 |
-| 7  | 54  | 54  | 54 |
-| 8  | fghfh  | fghfh  | fghfh |
-| 9  | 11  | 11  | 11 |
-
+| 1 | 13 | 154 | =C2+C4 |
+| 2 | -4 | 154,14 | -4 |
+| 3 | 154,14 | 3 | 21,14 |
+| 4 | text A4 | TRUE | 17 |
+| 5 | 22 | -122 | text A5 |
+| 6 | 7 | 22 | TRUE |
+| 7 | TRUE | -7 | 11 |
+| 8 | =A5+A6 | =B6+B7 | FALSE |
+| 9 | FALSE | text B9 | 54 |
+| 10 | text A10 | 13 | 47 |
+| 11 | 11 | FALSE | text C11 |
 ### Optional run arguments
 run example : java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-2 ct-2 rf-1 rt-9
+* er : type of excel reader 
 * l : file location 
 * cf: column index from
 * ct: column index to
@@ -52,23 +53,75 @@ run example : java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-2 ct-2 rf
 
 Column and row arguments are optional. If no column/row limitations all sheet cells will be taken.
 
-### Results
+### excel reader options - specify which cell type options will be looked up
+* er-a: all types
+* er-n: numeric
+* er-pn:prime numeric (default option if no "er-" argument)
+* er-b: boolean
+* er-s: String
+* er-f: formulas
+
+### Test file
 Test files can be stored in main/resorces
 
-        // java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-2 ct-2 rf-1 rt-9
-        // úno 17, 2026 12:51:12 ODP. my.excelreader.MyExcelReader log
-        // INFO: args=[l-TestData.xlsx, cf-2, ct-2, rf-1, rt-9]
-        // úno 17, 2026 12:51:13 ODP. my.excelreader.MyExcelReader log
-        // INFO: primeNumbers=[17, 7, 11]
+### Run examples and results
 
-        // java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9
-        // úno 17, 2026 12:52:55 ODP. my.excelreader.MyExcelReader log
-        // INFO: args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9]
-        // úno 17, 2026 12:52:56 ODP. my.excelreader.MyExcelReader log
-        // INFO: primeNumbers=[3, 11]
+* excel reader type argument not set - used default "pn"   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9   <br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=pn}   <br />
+  MyExcelReader-ExcelPrimeNumericReader : values=[3, 13]   <br />
+  values=[3, 13]   <br />
 
-        // java -jar SpringExcelReader-1.0.0.jar l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx  cf-2 ct-2 rf-1 rt-9
-        // úno 17, 2026 3:33:22 ODP. my.excelreader.MyExcelReader log
-        // INFO: args=[l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx, cf-2, ct-2, rf-1, rt-9]
-        // úno 17, 2026 3:33:23 ODP. my.excelreader.MyExcelReader log
-        // INFO: primeNumbers=[17, 7, 11]
+* er-n - ExcelNumericReader   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9 er-n   <br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9, er-n]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=n}   <br />
+  MyExcelReader-ExcelNumericReader : values=[154.14, 3, -122, 22, -7, 13]   <br />
+  values=[154.14, 3, -122, 22, -7, 13]   <br />
+ 
+* er-pn - ExcelPrimeNumericReader   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9 er-pn    <br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9, er-pn]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=pn}   <br />
+  MyExcelReader-ExcelPrimeNumericReader : values=[3, 13]   <br />
+  values=[3, 13]   <br />
+
+* er-s - ExcelStringReader   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9 er-s    <br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9, er-s]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=s}   <br />
+  MyExcelReader-ExcelStringReader : values=[text B9]   <br />
+  values=[text B9]   <br />
+
+* er-b - ExcelBooleanReader   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9 er-b    <br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9, er-b]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=b}   <br />
+  MyExcelReader-ExcelBooleanReader : values=[true]   <br />
+  values=[true]   <br />
+
+* er-f - ExcelFormulaReader   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9 er-f    <br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9, er-f]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=f}   <br />
+  MyExcelReader-ExcelFormulaReader : values=[B6+B7]   <br />
+  values=[B6+B7]   <br />
+
+* er-a - used all excel reader types   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9 er-a   <br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9, er-a]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=a}   <br />
+  MyExcelReader-ExcelNumericReader : values=[154.14, 3, -122, 22, -7, 13]   <br />
+  MyExcelReader-ExcelPrimeNumericReader : values=[3, 13]   <br />
+  MyExcelReader-ExcelStringReader : values=[text B9]   <br />
+  MyExcelReader-ExcelBooleanReader : values=[true]   <br />
+  MyExcelReader-ExcelFormulaReader : values=[B6+B7]   <br />
+  values=[154.14, 3, -122, 22, -7, 13, 3, 13, text B9, true, B6+B7]   <br />
+
+* arguments not set - all sheet cells checked, used default excel reader type "pn"   <br />
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx   <br />
+  args=[l-TestData.xlsx]   <br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=0, columnTo=-1, rowFrom=0, rowTo=-1, excelReaderType=pn}   <br />
+  MyExcelReader-ExcelPrimeNumericReader : values=[13, 3, 17, 7, 11, 13, 47, 11]   <br />
+  values=[13, 3, 17, 7, 11, 13, 47, 11]   <br />

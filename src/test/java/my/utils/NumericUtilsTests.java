@@ -7,18 +7,20 @@ class NumericUtilsTests {
 
 	@Test
 	void isInteger() {
-		Assert.isTrue(!NumericUtils.isInteger(14.2), "NumericUtils.isInteger(14.2) failed");
-		Assert.isTrue(NumericUtils.isInteger(14), "NumericUtils.isInteger(14) failed");
-		Assert.isTrue(NumericUtils.isInteger(-7), "NumericUtils.isInteger(-7) failed");
-		Assert.isTrue(NumericUtils.isInteger(7), "NumericUtils.isInteger(7) failed");
+		String errMsg = "NumericUtils.isInteger failed";
+		Assert.isTrue(!NumericUtils.isInteger(14.2), errMsg);
+		Assert.isTrue(NumericUtils.isInteger(14), errMsg);
+		Assert.isTrue(NumericUtils.isInteger(-7), errMsg);
+		Assert.isTrue(NumericUtils.isInteger(7), errMsg);
 	}
 
 	@Test
 	void isPrime() {
-		Assert.isTrue(!NumericUtils.isPrime(14), "NumericUtils.isPrime(14) failed");
-		Assert.isTrue(!NumericUtils.isPrime((int) -14), "NumericUtils.isPrime(-14) failed");
-		Assert.isTrue(NumericUtils.isPrime(11), "NumericUtils.isPrime(11) failed");
-		Assert.isTrue(!NumericUtils.isPrime(-11), "NumericUtils.isPrime(-11) failed");
+		String errMsg = "NumericUtils.isPrime failed";
+		Assert.isTrue(!NumericUtils.isPrime(14), errMsg);
+		Assert.isTrue(!NumericUtils.isPrime((int) -14), errMsg);
+		Assert.isTrue(NumericUtils.isPrime(11), errMsg);
+		Assert.isTrue(!NumericUtils.isPrime(-11), errMsg);
 	}
 
 }
