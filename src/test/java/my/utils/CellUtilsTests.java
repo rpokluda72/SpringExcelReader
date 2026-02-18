@@ -7,16 +7,16 @@ import static org.mockito.Mockito.*;
 
 import org.springframework.util.Assert;
 
-class ExcelUtilsTests {
+class CellUtilsTests {
 
 	Cell cell = mock(Cell.class);
 
 	@Test
 	void isInteger() {
 		when(cell.getCellType()).thenReturn(CellType.NUMERIC);
-		Assert.isTrue(ExcelUtils.isValidCell(cell, CellType.NUMERIC), "ExcelUtils.isValidCellfailed");
+		Assert.isTrue(CellUtils.isValidCell(cell, CellType.NUMERIC), "ExcelUtils.isValidCellfailed");
 
 		when(cell.getCellType()).thenReturn(CellType.STRING);
-		Assert.isTrue(!ExcelUtils.isValidCell(cell, CellType.NUMERIC), "ExcelUtils.isValidCellfailed");
+		Assert.isTrue(!CellUtils.isValidCell(cell, CellType.NUMERIC), "ExcelUtils.isValidCellfailed");
 	}
 }

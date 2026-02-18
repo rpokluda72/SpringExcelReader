@@ -1,10 +1,12 @@
 package my.excelreader;
 
 
+import my.cellvalidators.CellTypeValidator;
 import my.cellvalidators.CellValidatorFactory;
 import my.cellvalidators.PrimeNumberValidator;
 import my.filereaders.ExcelReader;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
@@ -42,6 +44,7 @@ public class MyExcelReader {
         }
         CellValidatorFactory factory = new CellValidatorFactory();
         factory.setValidatorsFromArguments(readerArgs);
+        factory.addValidator(new CellTypeValidator(CellType.NUMERIC));
         factory.addValidator(new PrimeNumberValidator());
 
         for (Row row : sheet) {

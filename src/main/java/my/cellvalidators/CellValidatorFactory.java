@@ -1,6 +1,7 @@
 package my.cellvalidators;
 
 import my.excelreader.ArgumentsReader;
+import my.utils.CellUtils;
 import org.apache.poi.ss.usermodel.Cell;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class CellValidatorFactory {
     }
 
     public void addValidator(CellValidator validator) {
+        // System.out.println("addValidator : class=" + validator.getClass().getName());
         this.validators.add(validator);
     }
 
