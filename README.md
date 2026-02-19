@@ -26,18 +26,18 @@ Může jich být více a větší (i více než 64 bitů), s vlivem na celkový 
 Pokud se uchazeč rozhodne tuto úlohu vypracovat, je nutné, aby ji vypracoval samostatně bez pomoci jiných osob, GPT a obdobných AI nástrojů. Použití internetu je povoleno. Pokud při vypracování úlohy máte nejasnosti a nemáte dostatek informací, dotazy formulujte. Následně si na dotazy navrhněte odpověď a podle toho úlohu vypracujte. Dotazy a odpovědi prosím přiložte k vypracované úloze.
 
 ### Test excel file
-|   | A | B | C |
-| ------------- | ------------- | ------------- | ------------- |
-| 1 | 13 | 154 | =C2+C4 |
-| 2 | -4 | 154,14 | -4 |
-| 3 | 154,14 | 3 | 21,14 |
-| 4 | text A4 | TRUE | 17 |
-| 5 | 22 | -122 | text A5 |
-| 6 | 7 | 22 | TRUE |
-| 7 | TRUE | -7 | 11 |
-| 8 | =A5+A6 | =B6+B7 | FALSE |
-| 9 | FALSE | text B9 | 54 |
-| 10 | text A10 | 13 | 47 |
+|   | A | B | C        |
+| ------------- | ------------- | ------------- |----------|
+| 1 | 13 | 154 | =C2+C4   |
+| 2 | -4 | 154,14 | -4       |
+| 3 | 154,14 | 3 | 21,14    |
+| 4 | text A4 | TRUE | 17       |
+| 5 | 22 | -122 | text C5  |
+| 6 | 7 | 22 | TRUE     |
+| 7 | TRUE | -7 | 11       |
+| 8 | =A5+A6 | =B6+B7 | FALSE    |
+| 9 | FALSE | text B9 | 54       |
+| 10 | text A10 | 13 | 47       |
 | 11 | 11 | FALSE | text C11 |
 ### Optional run arguments
 run example : java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-2 ct-2 rf-1 rt-9
@@ -161,3 +161,23 @@ Test files can be stored in main/resorces
 | 4 | -122 | text A5 |
 | 5 | 22   | true |
 | 6 | 17   | 11  |
+
+
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx er-t                    
+args=[l-TestData.xlsx, er-t]  <br />
+MyExcelReader-ExcelInfoReader  <br />
+Table      <br />
+
+|   | A | B | C        |
+| ------------- | ------------- | ------------- |----------|
+| 1 | 13 | 154 | =C2+C4   |
+| 2 | -4 | 154,14 | -4       |
+| 3 | 154,14 | 3 | 21,14    |
+| 4 | text A4 | TRUE | 17       |
+| 5 | 22 | -122 | text C5  |
+| 6 | 7 | 22 | TRUE     |
+| 7 | TRUE | -7 | 11       |
+| 8 | =A5+A6 | =B6+B7 | FALSE    |
+| 9 | FALSE | text B9 | 54       |
+| 10 | text A10 | 13 | 47       |
+| 11 | 11 | FALSE | text C11 |
