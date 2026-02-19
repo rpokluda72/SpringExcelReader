@@ -1,35 +1,27 @@
 package my.excelreader;
 
-import my.cellvalidators.CellTypeValidator;
 import my.cellvalidators.CellValidatorFactory;
-import my.cellvalidators.PrimeNumberValidator;
 import my.filereaders.FileExcelReader;
-import my.utils.CellUtils;
-import org.apache.poi.ss.formula.functions.T;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ExcelReader implements IExcelReader {
+public class ExcelInfoReader {
 
-    Logger logger = Logger.getLogger(ExcelReader.class.getName());
-
+    Logger logger = Logger.getLogger(ExcelInfoReader.class.getName());
     CellValidatorFactory factory = new CellValidatorFactory();
 
-    @Override
-    public ArrayList<String> getCellValues(String[] args) {
-        // log(Level.INFO, "args=" + Arrays.toString(args));
+    public ExcellSheetInfo getInfo(String[] args) {
+        log(Level.INFO, "args=" + Arrays.toString(args));
         ArgumentsReader readerArgs = new ArgumentsReader(args);
-        return getCellValues(readerArgs);
+        return getInfo(readerArgs);
     }
 
-    private ArrayList<String> getCellValues(ArgumentsReader readerArgs) {
+    private ExcellSheetInfo getInfo(ArgumentsReader readerArgs) {
         factory.setValidatorsFromArguments(readerArgs);
         FileExcelReader fileExcelReader = new FileExcelReader();
         Sheet sheet;
@@ -38,36 +30,28 @@ public class ExcelReader implements IExcelReader {
         } else {
             sheet = fileExcelReader.getSheet(readerArgs.getLocation(), 0);
         }
-        return getCellValuesFromSheet(sheet);
+        return getInfoFromSheet(sheet);
     }
 
-    private ArrayList<String> getCellValuesFromSheet(Sheet sheet) {
-        ArrayList<String> values = new ArrayList<>();
+    private ExcellSheetInfo getInfoFromSheet(Sheet sheet) {
         if (sheet == null) {
-            return values;
+            return null;
         }
+        ExcellSheetInfo info = new ExcellSheetInfo();
 
         for (Row row : sheet) {
             for (Cell cell : row) {
-                // CellUtils.printCell(cell);
                 if (factory.isValid(cell)) {
-                    values.add(CellUtils.getCellValue(cell));
+                    info.addCell(new ExcellCellInfo(cell));
                 }
             }
         }
-        return values;
-    }
-
-    public CellValidatorFactory getFactory() {
-        return factory;
-    }
-
-    public void setFactory(CellValidatorFactory factory) {
-        this.factory = factory;
+//        log(Level.INFO, "info.getCells().size()=" + info.getCells().size());
+        return info;
     }
 
     public void log(Level level, String textToLog) {
         logger.log(level, textToLog);
-        // System.out.println(textToLog);
+//         System.out.println(textToLog);
     }
 }

@@ -7,6 +7,8 @@ package my.excelreader;
  * er-b: boolean
  * er-s: String
  * er-f: formulas
+ * er-i: info
+ * er-t: table
  */
 public enum ExcelReaderType {
     ALL_TYPES_READER("a"),
@@ -14,7 +16,9 @@ public enum ExcelReaderType {
     PRIME_NUMERIC_READER("pn"),
     BOOLEAN_READER("b"),
     STRING_READER("s"),
-    FORMULA_READER("f");
+    FORMULA_READER("f"),
+    INFO_READER("i"),
+    TABLE_READER("t");
 
     private String type;
 

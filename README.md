@@ -125,3 +125,39 @@ Test files can be stored in main/resorces
   readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=0, columnTo=-1, rowFrom=0, rowTo=-1, excelReaderType=pn}   <br />
   MyExcelReader-ExcelPrimeNumericReader : values=[13, 3, 17, 7, 11, 13, 47, 11]   <br />
   values=[13, 3, 17, 7, 11, 13, 47, 11]   <br />
+
+* use absolute path
+####  java -jar SpringExcelReader-1.0.0.jar l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx  cf-2 ct-2 rf-1 rt-9<br />
+  args=[l-C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx, cf-2, ct-2, rf-1, rt-9]<br />
+  readerArgs=ReaderArguments{location='C:\Users\roman\Work\pohovor\projects\java\excelReader\SpringExcelReader\src\main\resources\TestData.xlsx', columnFrom=2, columnTo=2, rowFrom=1, rowTo=9, excelReaderType=pn}<br />
+  MyExcelReader-ExcelPrimeNumericReader : values=[17, 11, 47]<br />
+  values=[17, 11, 47]   <br />
+
+* use excel info reader - info
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-1 rf-1 rt-9 er-i<br />
+  args=[l-TestData.xlsx, cf-1, ct-1, rf-1, rt-9, er-i]<br />
+  readerArgs=ReaderArguments{location='TestData.xlsx', columnFrom=1, columnTo=1, rowFrom=1, rowTo=9, excelReaderType=i}<br />
+  MyExcelReader-ExcelInfoReader<br />
+  Info <br />
+  ExcellCellInfo = {type=NUMERIC, rowIndex=1, columnIndex=1, value='154.14'} <br />
+  ExcellCellInfo = {type=NUMERIC, rowIndex=2, columnIndex=1, value='3'} <br />
+  ExcellCellInfo = {type=BOOLEAN, rowIndex=3, columnIndex=1, value='true'} <br />
+  ExcellCellInfo = {type=NUMERIC, rowIndex=4, columnIndex=1, value='-122'} <br />
+  ExcellCellInfo = {type=NUMERIC, rowIndex=5, columnIndex=1, value='22'} <br />
+  ExcellCellInfo = {type=NUMERIC, rowIndex=6, columnIndex=1, value='-7'} <br />
+  ExcellCellInfo = {type=FORMULA, rowIndex=7, columnIndex=1, value='B6+B7'} <br />
+  ExcellCellInfo = {type=STRING, rowIndex=8, columnIndex=1, value='text B9'} <br />
+  ExcellCellInfo = {type=NUMERIC, rowIndex=9, columnIndex=1, value='13'} <br />
+
+* use excel info reader - table
+####  java -jar SpringExcelReader-1.0.0.jar l-TestData.xlsx cf-1 ct-2 rf-3 rt-6 er-t  <br />
+  args=[l-TestData.xlsx, cf-1, ct-2, rf-3, rt-6, er-t] <br />
+  MyExcelReader-ExcelInfoReader  <br />
+         Table      <br />
+
+|   | B    | C   |
+|---|------|-----|
+| 3 | true | 17 |
+| 4 | -122 | text A5 |
+| 5 | 22   | true |
+| 6 | 17   | 11  |

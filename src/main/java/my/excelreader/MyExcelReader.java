@@ -75,11 +75,10 @@ public class MyExcelReader {
 
     ArrayList<String> allValues = new ArrayList<>();
 
-    public ArrayList<String> read(String[] args) {
-        allValues.clear();
+    public void read(String[] args) {
         log(Level.INFO, "args=" + Arrays.toString(args));
         ArgumentsReader readerArgs = new ArgumentsReader(args);
-        log(Level.INFO, "readerArgs=" + readerArgs);
+//        log(Level.INFO, "readerArgs=" + readerArgs);
         if (readerArgs.getExcelReaderType().equals(ExcelReaderType.NUMERIC_READER.getType())) {
             runExcelNumericReader(args);
         } else if (readerArgs.getExcelReaderType().equals(ExcelReaderType.PRIME_NUMERIC_READER.getType())) {
@@ -90,6 +89,8 @@ public class MyExcelReader {
             runExcelBooleanReader(args);
         } else if (readerArgs.getExcelReaderType().equals(ExcelReaderType.FORMULA_READER.getType())) {
             runExcelFormulaReader(args);
+        } else if (readerArgs.getExcelReaderType().equals(ExcelReaderType.INFO_READER.getType()) || readerArgs.getExcelReaderType().equals(ExcelReaderType.TABLE_READER.getType())) {
+            runExcelInfoReader(args);
         } else if (readerArgs.getExcelReaderType().equals(ExcelReaderType.ALL_TYPES_READER.getType())) {
             runExcelNumericReader(args);
             runExcelPrimeNumericReader(args);
@@ -97,8 +98,6 @@ public class MyExcelReader {
             runExcelBooleanReader(args);
             runExcelFormulaReader(args);
         }
-//        log(Level.INFO, "MyExcelReader.read : allValues.size()=" + allValues.size());
-        return allValues;
     }
 
     private void runExcelNumericReader(String[] args) {
@@ -134,6 +133,29 @@ public class MyExcelReader {
         ArrayList<String> values = reader.getCellValues(args);
         allValues.addAll(values);
         log(Level.INFO, "MyExcelReader-ExcelFormulaReader : values=" + values);
+    }
+
+
+    private void runExcelInfoReader(String[] args) {
+        ExcelInfoReader reader = new ExcelInfoReader();
+        ArgumentsReader readerArgs = new ArgumentsReader(args);
+        ExcellSheetInfo info = reader.getInfo(args);
+        if (readerArgs.getExcelReaderType().equals(ExcelReaderType.INFO_READER.getType())) {
+            for (ExcellCellInfo cell : info.getCells()) {
+                allValues.add(cell.toString());
+            }
+        } else if (readerArgs.getExcelReaderType().equals(ExcelReaderType.TABLE_READER.getType())) {
+            allValues.add(info.print());
+        }
+        log(Level.INFO, "MyExcelReader-ExcelInfoReader \n" + allValues);
+    }
+
+    public ArrayList<String> getAllValues() {
+        return allValues;
+    }
+
+    public void setAllValues(ArrayList<String> allValues) {
+        this.allValues = allValues;
     }
 
     public void log(Level level, String textToLog) {
