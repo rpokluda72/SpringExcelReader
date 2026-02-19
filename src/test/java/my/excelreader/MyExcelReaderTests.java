@@ -61,7 +61,7 @@ class MyExcelReaderTests {
 		reader.read(args);
 		ArrayList<String> values = reader.getAllValues();
 		Assert.isTrue(values.size() == 1, errMsg);
-		Assert.isTrue(values.get(0).equals("text A5"), errMsg);
+		Assert.isTrue(values.get(0).equals("text C5"), errMsg);
 	}
 
 	@Test

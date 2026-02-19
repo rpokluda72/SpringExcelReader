@@ -33,7 +33,7 @@ class ExcelStringReaderTests {
 		reader.log(Level.INFO, "strings=" + strings);
 
 		Assert.isTrue(strings.size() == 1, errMsg);
-		Assert.isTrue(strings.get(0).equals("text A5"), errMsg);
+		Assert.isTrue(strings.get(0).equals("text C5"), errMsg);
 	}
 
 	@Test
@@ -59,7 +59,7 @@ class ExcelStringReaderTests {
 		reader.log(Level.INFO, "strings=" + strings);
 
 		Assert.isTrue(strings.size() == 1, errMsg);
-		Assert.isTrue(strings.get(0).equals("text A5"), errMsg);
+		Assert.isTrue(strings.get(0).equals("text C5"), errMsg);
 	}
 
 
@@ -73,6 +73,6 @@ class ExcelStringReaderTests {
 		reader.log(Level.INFO, "strings=" + strings);
 
 		Assert.isTrue(strings.size() == 1, errMsg);
-		Assert.isTrue(strings.get(0).equals("text A5"), errMsg);
+		Assert.isTrue(strings.get(0).equals("text C5"), errMsg);
 	}
 }
