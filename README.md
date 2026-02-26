@@ -60,6 +60,8 @@ Column and row arguments are optional. If no column/row limitations all sheet ce
 * er-b: boolean
 * er-s: String
 * er-f: formulas
+* er-i: sheet content info
+* er-t: sheet content info as table
 
 ### Test file
 Test files can be stored in main/resorces

@@ -159,7 +159,7 @@ public class MyExcelReader {
     }
 
     public void log(Level level, String textToLog) {
-//        logger.log(level, textToLog);
-         System.out.println(textToLog);
+        logger.log(level, textToLog);
+//         System.out.println(textToLog);
     }
 }

@@ -15,11 +15,6 @@ public class ExcelPrimeNumericReader extends ExcelNumericReader {
         super.factory.addValidator(new PrimeNumberValidator());
     }
 
-    public ArrayList<String> getCellValues(String[] args) {
-//        super.factory.addValidator(new PrimeNumberValidator());
-        return super.getCellValues(args);
-    }
-
     public void log(Level level, String textToLog) {
         logger.log(level, textToLog);
         // System.out.println(textToLog);

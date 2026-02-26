@@ -118,7 +118,7 @@ public class ExcellSheetInfo {
         int minColumnIndex = getMinColumnIndex();
         int maxColumnIndex = getMaxColumnIndex();
         int maxCellSize = getMaxCellSize();
-        System.out.println("print : minRowIndex=" + minRowIndex + ", maxRowIndex=" + maxRowIndex + ", minColumnIndex=" + minColumnIndex + ", maxColumnIndex=" + maxColumnIndex + ", maxCellSize=" + maxCellSize);
+        // System.out.println("print : minRowIndex=" + minRowIndex + ", maxRowIndex=" + maxRowIndex + ", minColumnIndex=" + minColumnIndex + ", maxColumnIndex=" + maxColumnIndex + ", maxCellSize=" + maxCellSize);
 
         StringBuilder info = new StringBuilder("- - - Table - - - \n");
         info.append(printHeaderRow(minColumnIndex, maxColumnIndex, maxCellSize));
