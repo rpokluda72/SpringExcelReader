@@ -15,6 +15,11 @@ public class ExcelInfoReader {
     Logger logger = Logger.getLogger(ExcelInfoReader.class.getName());
     CellValidatorFactory factory = new CellValidatorFactory();
 
+    public ExcelInfoReader(String[] args) {
+        ArgumentsReader readerArgs = new ArgumentsReader(args);
+        factory.setValidatorsFromArguments(readerArgs);
+    }
+
     public ExcellSheetInfo getInfo(String[] args) {
         log(Level.INFO, "args=" + Arrays.toString(args));
         ArgumentsReader readerArgs = new ArgumentsReader(args);
@@ -22,7 +27,7 @@ public class ExcelInfoReader {
     }
 
     private ExcellSheetInfo getInfo(ArgumentsReader readerArgs) {
-        factory.setValidatorsFromArguments(readerArgs);
+//        factory.setValidatorsFromArguments(readerArgs);
         FileExcelReader fileExcelReader = new FileExcelReader();
         Sheet sheet;
         if (readerArgs.getLocation().startsWith("C:")) {

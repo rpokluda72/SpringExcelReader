@@ -16,7 +16,7 @@ class ExcelInfoReaderTests {
 		String errMsg = "readA failed";
 		String[] args = { "l-TestData.xlsx", "cf-2", "ct-2", "rf-1", "rt-9", "er-i"};
 
-		ExcelInfoReader reader = new ExcelInfoReader();
+		ExcelInfoReader reader = new ExcelInfoReader(args);
 		ExcellSheetInfo info = reader.getInfo(args);
 		ArrayList<ExcellCellInfo> cells = info.getCells();
 		print(info);
@@ -44,7 +44,7 @@ class ExcelInfoReaderTests {
 		String errMsg = "readA failed";
 		String[] args = { "l-TestData.xlsx", "er-i"};
 
-		ExcelInfoReader reader = new ExcelInfoReader();
+		ExcelInfoReader reader = new ExcelInfoReader(args);
 		ExcellSheetInfo info = reader.getInfo(args);
 		ArrayList<ExcellCellInfo> cells = info.getCells();
 		print(info);

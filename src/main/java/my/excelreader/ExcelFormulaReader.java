@@ -11,8 +11,13 @@ public class ExcelFormulaReader extends ExcelReader {
 
     Logger logger = Logger.getLogger(ExcelFormulaReader.class.getName());
 
-    public ArrayList<String> getCellValues(String[] args) {
+    public ExcelFormulaReader(String[] args) {
+        super(args);
         super.factory.addValidator(new CellTypeValidator(CellType.FORMULA));
+    }
+
+    public ArrayList<String> getCellValues(String[] args) {
+//        super.factory.addValidator(new CellTypeValidator(CellType.FORMULA));
         return super.getCellValues(args);
     }
 

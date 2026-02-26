@@ -101,35 +101,35 @@ public class MyExcelReader {
     }
 
     private void runExcelNumericReader(String[] args) {
-        ExcelNumericReader reader = new ExcelNumericReader();
+        ExcelNumericReader reader = new ExcelNumericReader(args);
         ArrayList<String> values = reader.getCellValues(args);
         allValues.addAll(values);
         log(Level.INFO, "MyExcelReader-ExcelNumericReader : values=" + values);
     }
 
     private void runExcelPrimeNumericReader(String[] args) {
-        ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader();
+        ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader(args);
         ArrayList<String> values = reader.getCellValues(args);
         allValues.addAll(values);
         log(Level.INFO, "MyExcelReader-ExcelPrimeNumericReader : values=" + values);
     }
 
     private void runExcelStringReader(String[] args) {
-        ExcelStringReader reader = new ExcelStringReader();
+        ExcelStringReader reader = new ExcelStringReader(args);
         ArrayList<String> values = reader.getCellValues(args);
         allValues.addAll(values);
         log(Level.INFO, "MyExcelReader-ExcelStringReader : values=" + values);
     }
 
     private void runExcelBooleanReader(String[] args) {
-        ExcelBooleanReader reader = new ExcelBooleanReader();
+        ExcelBooleanReader reader = new ExcelBooleanReader(args);
         ArrayList<String> values = reader.getCellValues(args);
         allValues.addAll(values);
         log(Level.INFO, "MyExcelReader-ExcelBooleanReader : values=" + values);
     }
 
     private void runExcelFormulaReader(String[] args) {
-        ExcelFormulaReader reader = new ExcelFormulaReader();
+        ExcelFormulaReader reader = new ExcelFormulaReader(args);
         ArrayList<String> values = reader.getCellValues(args);
         allValues.addAll(values);
         log(Level.INFO, "MyExcelReader-ExcelFormulaReader : values=" + values);
@@ -137,7 +137,7 @@ public class MyExcelReader {
 
 
     private void runExcelInfoReader(String[] args) {
-        ExcelInfoReader reader = new ExcelInfoReader();
+        ExcelInfoReader reader = new ExcelInfoReader(args);
         ArgumentsReader readerArgs = new ArgumentsReader(args);
         ExcellSheetInfo info = reader.getInfo(args);
         if (readerArgs.getExcelReaderType().equals(ExcelReaderType.INFO_READER.getType())) {

@@ -28,7 +28,7 @@ class ExcelPrimeNumericReaderTests {
 		String errMsg = "readA failed";
 		String[] args = { "l-TestData.xlsx", "cf-2", "ct-2", "rf-1", "rt-9"};
 
-		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader();
+		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader(args);
 		ArrayList<String> values = reader.getCellValues(args);
 		reader.log(Level.INFO, "values=" + values);
 
@@ -43,7 +43,7 @@ class ExcelPrimeNumericReaderTests {
 		String errMsg = "readB failed";
 		String[] args = { "l-TestData.xlsx", "cf-1", "ct-1", "rf-1", "rt-9"};
 
-		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader();
+		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader(args);
 		ArrayList<String> values = reader.getCellValues(args);
 		reader.log(Level.INFO, "values=" + values);
 
@@ -57,7 +57,7 @@ class ExcelPrimeNumericReaderTests {
 		String errMsg = "readC failed";
 		String[] args = { "l-TestData.xlsx", "cf-2", "ct-2", "rf-2", "rt-7"};
 
-		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader();
+		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader(args);
 		ArrayList<String> values = reader.getCellValues(args);
 		reader.log(Level.INFO, "values=" + values);
 
@@ -72,7 +72,7 @@ class ExcelPrimeNumericReaderTests {
 		String errMsg = "readC failed";
 		String[] args = { "l-C:\\Users\\roman\\Work\\pohovor\\projects\\java\\excelReader\\SpringExcelReader\\src\\main\\resources\\TestData.xlsx", "cf-2", "ct-2", "rf-2", "rt-7"};
 
-		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader();
+		ExcelPrimeNumericReader reader = new ExcelPrimeNumericReader(args);
 		ArrayList<String> values = reader.getCellValues(args);
 		reader.log(Level.INFO, "values=" + values);
 

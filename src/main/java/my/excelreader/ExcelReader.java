@@ -22,6 +22,11 @@ public class ExcelReader implements IExcelReader {
 
     CellValidatorFactory factory = new CellValidatorFactory();
 
+    public ExcelReader(String[] args) {
+        ArgumentsReader readerArgs = new ArgumentsReader(args);
+        factory.setValidatorsFromArguments(readerArgs);
+    }
+
     @Override
     public ArrayList<String> getCellValues(String[] args) {
         // log(Level.INFO, "args=" + Arrays.toString(args));
@@ -30,7 +35,7 @@ public class ExcelReader implements IExcelReader {
     }
 
     private ArrayList<String> getCellValues(ArgumentsReader readerArgs) {
-        factory.setValidatorsFromArguments(readerArgs);
+//        factory.setValidatorsFromArguments(readerArgs);
         FileExcelReader fileExcelReader = new FileExcelReader();
         Sheet sheet;
         if (readerArgs.getLocation().startsWith("C:")) {

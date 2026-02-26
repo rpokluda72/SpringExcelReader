@@ -10,8 +10,13 @@ public class ExcelPrimeNumericReader extends ExcelNumericReader {
 
     Logger logger = Logger.getLogger(ExcelPrimeNumericReader.class.getName());
 
-    public ArrayList<String> getCellValues(String[] args) {
+    public ExcelPrimeNumericReader(String[] args) {
+        super(args);
         super.factory.addValidator(new PrimeNumberValidator());
+    }
+
+    public ArrayList<String> getCellValues(String[] args) {
+//        super.factory.addValidator(new PrimeNumberValidator());
         return super.getCellValues(args);
     }
 

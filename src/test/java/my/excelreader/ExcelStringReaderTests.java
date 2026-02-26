@@ -28,7 +28,7 @@ class ExcelStringReaderTests {
 		String errMsg = "readA failed";
 		String[] args = { "l-TestData.xlsx", "cf-2", "ct-2", "rf-1", "rt-9"};
 
-		ExcelStringReader reader = new ExcelStringReader();
+		ExcelStringReader reader = new ExcelStringReader(args);
 		ArrayList<String> strings = reader.getCellValues(args);
 		reader.log(Level.INFO, "strings=" + strings);
 
@@ -41,7 +41,7 @@ class ExcelStringReaderTests {
 		String errMsg = "readB failed";
 		String[] args = { "l-TestData.xlsx", "cf-1", "ct-1", "rf-1", "rt-9"};
 
-		ExcelStringReader reader = new ExcelStringReader();
+		ExcelStringReader reader = new ExcelStringReader(args);
 		ArrayList<String> strings = reader.getCellValues(args);
 		reader.log(Level.INFO, "strings=" + strings);
 
@@ -54,7 +54,7 @@ class ExcelStringReaderTests {
 		String errMsg = "readC failed";
 		String[] args = { "l-TestData.xlsx", "cf-2", "ct-2", "rf-2", "rt-7"};
 
-		ExcelStringReader reader = new ExcelStringReader();
+		ExcelStringReader reader = new ExcelStringReader(args);
 		ArrayList<String> strings = reader.getCellValues(args);
 		reader.log(Level.INFO, "strings=" + strings);
 
@@ -68,7 +68,7 @@ class ExcelStringReaderTests {
 		String errMsg = "readC failed";
 		String[] args = { "l-C:\\Users\\roman\\Work\\pohovor\\projects\\java\\excelReader\\SpringExcelReader\\src\\main\\resources\\TestData.xlsx", "cf-2", "ct-2", "rf-2", "rt-7"};
 
-		ExcelStringReader reader = new ExcelStringReader();
+		ExcelStringReader reader = new ExcelStringReader(args);
 		ArrayList<String> strings = reader.getCellValues(args);
 		reader.log(Level.INFO, "strings=" + strings);
 

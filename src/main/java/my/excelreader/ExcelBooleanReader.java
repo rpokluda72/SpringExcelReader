@@ -11,8 +11,13 @@ public class ExcelBooleanReader extends ExcelReader {
 
     Logger logger = Logger.getLogger(ExcelBooleanReader.class.getName());
 
-    public ArrayList<String> getCellValues(String[] args) {
+    public ExcelBooleanReader(String[] args) {
+        super(args);
         super.factory.addValidator(new CellTypeValidator(CellType.BOOLEAN));
+    }
+
+    public ArrayList<String> getCellValues(String[] args) {
+//        super.factory.addValidator(new CellTypeValidator(CellType.BOOLEAN));
         return super.getCellValues(args);
     }
 
