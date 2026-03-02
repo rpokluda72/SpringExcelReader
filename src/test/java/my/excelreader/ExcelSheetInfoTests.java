@@ -7,15 +7,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.logging.Level;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class ExcelSheetInfoTests {
 
-	ExcellSheetInfo info = new ExcellSheetInfo();
+	ExcelSheetInfo info = new ExcelSheetInfo();
 
 	@BeforeEach
 	public void setInfo() {

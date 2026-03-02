@@ -20,13 +20,13 @@ public class ExcelInfoReader {
         factory.setValidatorsFromArguments(readerArgs);
     }
 
-    public ExcellSheetInfo getInfo(String[] args) {
+    public ExcelSheetInfo getInfo(String[] args) {
         log(Level.INFO, "args=" + Arrays.toString(args));
         ArgumentsReader readerArgs = new ArgumentsReader(args);
         return getInfo(readerArgs);
     }
 
-    private ExcellSheetInfo getInfo(ArgumentsReader readerArgs) {
+    private ExcelSheetInfo getInfo(ArgumentsReader readerArgs) {
 //        factory.setValidatorsFromArguments(readerArgs);
         FileExcelReader fileExcelReader = new FileExcelReader();
         Sheet sheet;
@@ -38,11 +38,11 @@ public class ExcelInfoReader {
         return getInfoFromSheet(sheet);
     }
 
-    private ExcellSheetInfo getInfoFromSheet(Sheet sheet) {
+    private ExcelSheetInfo getInfoFromSheet(Sheet sheet) {
         if (sheet == null) {
             return null;
         }
-        ExcellSheetInfo info = new ExcellSheetInfo();
+        ExcelSheetInfo info = new ExcelSheetInfo();
 
         for (Row row : sheet) {
             for (Cell cell : row) {

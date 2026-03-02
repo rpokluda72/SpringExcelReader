@@ -1,13 +1,10 @@
 package my.excelreader;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class ExcellSheetInfo {
+public class ExcelSheetInfo {
 
     String[] colHeaders = {"A", "B", "C", "D"};
     private ArrayList<ExcellCellInfo> cells = new ArrayList<>();

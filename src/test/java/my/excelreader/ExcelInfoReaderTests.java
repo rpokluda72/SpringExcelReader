@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
 
 class ExcelInfoReaderTests {
 
@@ -17,7 +16,7 @@ class ExcelInfoReaderTests {
 		String[] args = { "l-TestData.xlsx", "cf-2", "ct-2", "rf-1", "rt-9", "er-i"};
 
 		ExcelInfoReader reader = new ExcelInfoReader(args);
-		ExcellSheetInfo info = reader.getInfo(args);
+		ExcelSheetInfo info = reader.getInfo(args);
 		ArrayList<ExcellCellInfo> cells = info.getCells();
 		print(info);
 
@@ -45,14 +44,14 @@ class ExcelInfoReaderTests {
 		String[] args = { "l-TestData.xlsx", "er-i"};
 
 		ExcelInfoReader reader = new ExcelInfoReader(args);
-		ExcellSheetInfo info = reader.getInfo(args);
+		ExcelSheetInfo info = reader.getInfo(args);
 		ArrayList<ExcellCellInfo> cells = info.getCells();
 		print(info);
 
 		Assert.isTrue(cells.size() == 33, errMsg);
 	}
 
-	private void print(ExcellSheetInfo info) {
+	private void print(ExcelSheetInfo info) {
 		if (printToConsole) {
 			System.out.println("info.getCells().size()=" + info.getCells().size());
 			System.out.println(info);

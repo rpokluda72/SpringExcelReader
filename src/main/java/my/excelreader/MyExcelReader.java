@@ -1,7 +1,5 @@
 package my.excelreader;
 
-import my.cellvalidators.CellValidatorFactory;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -139,7 +137,7 @@ public class MyExcelReader {
     private void runExcelInfoReader(String[] args) {
         ExcelInfoReader reader = new ExcelInfoReader(args);
         ArgumentsReader readerArgs = new ArgumentsReader(args);
-        ExcellSheetInfo info = reader.getInfo(args);
+        ExcelSheetInfo info = reader.getInfo(args);
         if (readerArgs.getExcelReaderType().equals(ExcelReaderType.INFO_READER.getType())) {
             for (ExcellCellInfo cell : info.getCells()) {
                 allValues.add(cell.toString());
